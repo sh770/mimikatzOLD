@@ -77,6 +77,26 @@ typedef struct _MSV1_0_PRIMARY_CREDENTIAL_10_1607 {
 	/* buffer */
 } MSV1_0_PRIMARY_CREDENTIAL_10_1607, *PMSV1_0_PRIMARY_CREDENTIAL_10_1607;
 
+typedef struct _MSV1_0_PRIMARY_CREDENTIAL_26100 {
+	LSA_UNICODE_STRING LogonDomainName;
+	LSA_UNICODE_STRING UserName;
+	PVOID pNtlmCredIsoInProc;
+	BOOLEAN isIso;
+	BOOLEAN isNtOwfPassword;
+	BOOLEAN isLmOwfPassword;
+	BOOLEAN isShaOwPassword;
+	DWORD unkD;
+#pragma pack(push, 2)
+	WORD isoSize;
+	BYTE DPAPIProtected[LM_NTLM_HASH_LENGTH];
+	DWORD align3;
+#pragma pack(pop)
+	BYTE NtOwfPassword[LM_NTLM_HASH_LENGTH];
+	BYTE LmOwfPassword[LM_NTLM_HASH_LENGTH];
+	BYTE ShaOwPassword[SHA_DIGEST_LENGTH];
+	/* buffer */
+} MSV1_0_PRIMARY_CREDENTIAL_26100, * PMSV1_0_PRIMARY_CREDENTIAL_26100;
+
 typedef struct _MSV1_0_PRIMARY_HELPER {
 	LONG offsetToLogonDomain;
 	LONG offsetToUserName;
