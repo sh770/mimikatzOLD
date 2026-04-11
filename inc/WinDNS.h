@@ -2227,4 +2227,3 @@ VOID    DnsFreeProxyName(__inout PWSTR    proxyName);
 #endif  // __cplusplus
 
 #endif // _WINDNS_INCLUDED_
-
